@@ -1,24 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Validate Number View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ValidateNumberViewController" customModule="oonishiReonKadai6" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9le-jV-gJE">
+                                <rect key="frame" x="188.5" y="74" width="37" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="mn7-Mb-5D8">
+                                <rect key="frame" x="28" y="160" width="358" height="31"/>
+                                <connections>
+                                    <action selector="validateSliderValueDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="8Hw-3a-8u4"/>
+                                </connections>
+                            </slider>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EaG-tS-NZw">
+                                <rect key="frame" x="30" y="220" width="354" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOP-4c-D4d">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO2-rC-gcv">
+                                        <rect key="frame" x="177" y="0.0" width="177" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6V-yY-PEb">
+                                <rect key="frame" x="184" y="290.5" width="46" height="30"/>
+                                <state key="normal" title="判定！"/>
+                                <connections>
+                                    <action selector="validateButtonDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z6b-In-ZSr"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EaG-tS-NZw" firstAttribute="trailing" secondItem="mn7-Mb-5D8" secondAttribute="trailing" id="0gK-by-cDy"/>
+                            <constraint firstItem="mn7-Mb-5D8" firstAttribute="top" secondItem="9le-jV-gJE" secondAttribute="bottom" constant="50" id="9Mi-KA-VkL"/>
+                            <constraint firstItem="j6V-yY-PEb" firstAttribute="top" secondItem="EaG-tS-NZw" secondAttribute="bottom" constant="50" id="G8h-Ai-ShI"/>
+                            <constraint firstItem="EaG-tS-NZw" firstAttribute="top" secondItem="mn7-Mb-5D8" secondAttribute="bottom" constant="30" id="Tmp-GZ-SrM"/>
+                            <constraint firstItem="j6V-yY-PEb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZNK-Yf-mJn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9le-jV-gJE" secondAttribute="trailing" constant="100" id="cBN-Hh-uOc"/>
+                            <constraint firstItem="9le-jV-gJE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="dJH-K6-eE0"/>
+                            <constraint firstItem="9le-jV-gJE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mXe-R3-589"/>
+                            <constraint firstItem="mn7-Mb-5D8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="op6-JH-5Hd"/>
+                            <constraint firstItem="EaG-tS-NZw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t7c-lg-MBl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mn7-Mb-5D8" secondAttribute="trailing" constant="30" id="vqZ-oZ-hHf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="randomNumberLabel" destination="9le-jV-gJE" id="7QH-w7-XSS"/>
+                        <outlet property="validateSlider" destination="mn7-Mb-5D8" id="UJm-Ov-8V1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="124"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

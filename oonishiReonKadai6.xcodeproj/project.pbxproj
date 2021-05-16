@@ -3,17 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		045D450517F2C0801F88D248 /* Pods_oonishiReonKadai6.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7068BC399EC51155AA2F6F58 /* Pods_oonishiReonKadai6.framework */; };
 		AB5779EA26514229005BECB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5779E926514229005BECB9 /* AppDelegate.swift */; };
 		AB5779EC26514229005BECB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5779EB26514229005BECB9 /* SceneDelegate.swift */; };
-		AB5779EE26514229005BECB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5779ED26514229005BECB9 /* ViewController.swift */; };
+		AB5779EE26514229005BECB9 /* ValidateNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5779ED26514229005BECB9 /* ValidateNumberViewController.swift */; };
 		AB5779F126514229005BECB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5779EF26514229005BECB9 /* Main.storyboard */; };
 		AB5779F32651422E005BECB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5779F22651422E005BECB9 /* Assets.xcassets */; };
 		AB5779F62651422E005BECB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5779F42651422E005BECB9 /* LaunchScreen.storyboard */; };
+		AB5779FE26515295005BECB9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5779FD26515294005BECB9 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,11 +23,12 @@
 		AB5779E626514229005BECB9 /* oonishiReonKadai6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oonishiReonKadai6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB5779E926514229005BECB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB5779EB26514229005BECB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AB5779ED26514229005BECB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB5779ED26514229005BECB9 /* ValidateNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateNumberViewController.swift; sourceTree = "<group>"; };
 		AB5779F026514229005BECB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB5779F22651422E005BECB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB5779F52651422E005BECB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB5779F72651422E005BECB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB5779FD26515294005BECB9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		C93A00BE08F018BE486FE5EF /* Pods-oonishiReonKadai6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oonishiReonKadai6.release.xcconfig"; path = "Target Support Files/Pods-oonishiReonKadai6/Pods-oonishiReonKadai6.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +67,8 @@
 			children = (
 				AB5779E926514229005BECB9 /* AppDelegate.swift */,
 				AB5779EB26514229005BECB9 /* SceneDelegate.swift */,
-				AB5779ED26514229005BECB9 /* ViewController.swift */,
+				AB5779ED26514229005BECB9 /* ValidateNumberViewController.swift */,
+				AB5779FD26515294005BECB9 /* UIViewController+Extension.swift */,
 				AB5779EF26514229005BECB9 /* Main.storyboard */,
 				AB5779F22651422E005BECB9 /* Assets.xcassets */,
 				AB5779F42651422E005BECB9 /* LaunchScreen.storyboard */,
@@ -80,7 +83,6 @@
 				6C604788B20CB2BA7514D69C /* Pods-oonishiReonKadai6.debug.xcconfig */,
 				C93A00BE08F018BE486FE5EF /* Pods-oonishiReonKadai6.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -206,7 +208,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB5779EE26514229005BECB9 /* ViewController.swift in Sources */,
+				AB5779FE26515295005BECB9 /* UIViewController+Extension.swift in Sources */,
+				AB5779EE26514229005BECB9 /* ValidateNumberViewController.swift in Sources */,
 				AB5779EA26514229005BECB9 /* AppDelegate.swift in Sources */,
 				AB5779EC26514229005BECB9 /* SceneDelegate.swift in Sources */,
 			);
