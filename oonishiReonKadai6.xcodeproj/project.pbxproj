@@ -15,6 +15,8 @@
 		AB5779F32651422E005BECB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5779F22651422E005BECB9 /* Assets.xcassets */; };
 		AB5779F62651422E005BECB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5779F42651422E005BECB9 /* LaunchScreen.storyboard */; };
 		AB5779FE26515295005BECB9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5779FD26515294005BECB9 /* UIViewController+Extension.swift */; };
+		AB577A05265169F0005BECB9 /* ValidateNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB577A04265169F0005BECB9 /* ValidateNumberViewModel.swift */; };
+		AB577A0726516A76005BECB9 /* ValidateNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB577A0626516A76005BECB9 /* ValidateNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		AB5779F52651422E005BECB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB5779F72651422E005BECB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB5779FD26515294005BECB9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		AB577A04265169F0005BECB9 /* ValidateNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateNumberViewModel.swift; sourceTree = "<group>"; };
+		AB577A0626516A76005BECB9 /* ValidateNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateNumber.swift; sourceTree = "<group>"; };
 		C93A00BE08F018BE486FE5EF /* Pods-oonishiReonKadai6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oonishiReonKadai6.release.xcconfig"; path = "Target Support Files/Pods-oonishiReonKadai6/Pods-oonishiReonKadai6.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,16 +69,50 @@
 		AB5779E826514229005BECB9 /* oonishiReonKadai6 */ = {
 			isa = PBXGroup;
 			children = (
+				AB577A022651577E005BECB9 /* Extension */,
+				AB577A0026515776005BECB9 /* Model */,
+				AB5779FF26515770005BECB9 /* View */,
+				AB577A0126515779005BECB9 /* ViewModel */,
 				AB5779E926514229005BECB9 /* AppDelegate.swift */,
 				AB5779EB26514229005BECB9 /* SceneDelegate.swift */,
-				AB5779ED26514229005BECB9 /* ValidateNumberViewController.swift */,
-				AB5779FD26515294005BECB9 /* UIViewController+Extension.swift */,
-				AB5779EF26514229005BECB9 /* Main.storyboard */,
 				AB5779F22651422E005BECB9 /* Assets.xcassets */,
 				AB5779F42651422E005BECB9 /* LaunchScreen.storyboard */,
 				AB5779F72651422E005BECB9 /* Info.plist */,
 			);
 			path = oonishiReonKadai6;
+			sourceTree = "<group>";
+		};
+		AB5779FF26515770005BECB9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB5779EF26514229005BECB9 /* Main.storyboard */,
+				AB5779ED26514229005BECB9 /* ValidateNumberViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AB577A0026515776005BECB9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB577A0626516A76005BECB9 /* ValidateNumber.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AB577A0126515779005BECB9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AB577A04265169F0005BECB9 /* ValidateNumberViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AB577A022651577E005BECB9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AB5779FD26515294005BECB9 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		AFF71C7E873AD7C24B2D50A4 /* Pods */ = {
@@ -208,9 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB577A0726516A76005BECB9 /* ValidateNumber.swift in Sources */,
 				AB5779FE26515295005BECB9 /* UIViewController+Extension.swift in Sources */,
 				AB5779EE26514229005BECB9 /* ValidateNumberViewController.swift in Sources */,
 				AB5779EA26514229005BECB9 /* AppDelegate.swift in Sources */,
+				AB577A05265169F0005BECB9 /* ValidateNumberViewModel.swift in Sources */,
 				AB5779EC26514229005BECB9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
