@@ -20,11 +20,14 @@ enum ValidationResult<Correct, Incorrect> {
 struct ValidateNumber {
     func validate(randomeNumber: Int, validateNumber: Int) -> ValidationResult<String, String> {
         let isCorrect = (randomeNumber == validateNumber)
-        if isCorrect {
-            let message = "\(ValidationMessage.correct)\nあなたの値: \(validateNumber)"
-            return .correct(message)
+        let validationSubMessage = "\nあなたの値: \(validateNumber)"
+        switch isCorrect {
+            case true:
+                let message = ValidationMessage.correct + validationSubMessage
+                return .correct(message)
+            case false:
+                let message = ValidationMessage.incorrect + validationSubMessage
+                return .incorrect(message)
         }
-        let message = "\(ValidationMessage.incorrect)\nあなたの値: \(validateNumber)"
-        return .incorrect(message)
     }
 }

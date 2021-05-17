@@ -5,7 +5,6 @@
 //  Created by 大西玲音 on 2021/05/16.
 //
 
-import RxSwift
 import RxCocoa
 
 protocol ValidateNumberViewModelInput {

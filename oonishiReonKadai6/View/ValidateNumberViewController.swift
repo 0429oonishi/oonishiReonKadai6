@@ -14,7 +14,7 @@ final class ValidateNumberViewController: UIViewController {
     @IBOutlet private weak var randomNumberLabel: UILabel!
     @IBOutlet private weak var validateSlider: UISlider!
     
-    private var validateNumber = Int()
+    private var validateNumber = 0
     private var sliderMinValue: Float { validateSlider.minimumValue }
     private var sliderMaxValue: Float { validateSlider.maximumValue }
     private var sliderCenterValue: Float { floor((sliderMinValue + sliderMaxValue) / 2) }
@@ -25,7 +25,7 @@ final class ValidateNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initValidationState()
+        initValidationState()
         setupBindings()
         
     }
@@ -63,4 +63,3 @@ final class ValidateNumberViewController: UIViewController {
     }
     
 }
-
