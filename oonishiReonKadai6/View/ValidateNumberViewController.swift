@@ -14,52 +14,51 @@ final class ValidateNumberViewController: UIViewController {
     @IBOutlet private weak var randomNumberLabel: UILabel!
     @IBOutlet private weak var validateSlider: UISlider!
     
-    private var validateNumber = 0
-    private var sliderMinValue: Float { validateSlider.minimumValue }
-    private var sliderMaxValue: Float { validateSlider.maximumValue }
-    private var sliderCenterValue: Float { floor((sliderMinValue + sliderMaxValue) / 2) }
-    private var randomNumberText: String { String(Int(Float.random(in: sliderMinValue...sliderMaxValue))) }
     private let validateNumberViewModel = ValidateNumberViewModel()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initValidationState()
         setupBindings()
-        
+        validateNumberViewModel.viewDidLoad()
     }
     
     private func setupBindings() {
         validateNumberViewModel.outputs.event
             .drive(onNext: { [weak self] event in
-                guard let self = self else { return }
+                guard let strongSelf = self else { return }
                 switch event {
-                    case .correctAlert(let message):
-                        self.showAlert(message: message) { _ in
-                            self.initValidationState()
+                    case .correctAlert(let message), .incorrectAlert(let message):
+                        strongSelf.showAlert(message: message) { [weak self] _ in
+                            self?.validateNumberViewModel.retryButtonDidTapped()
                         }
-                    case .incorrectAlert(let message):
-                        self.showAlert(message: message)
+                    case .changeSliderValue(let value):
+                        strongSelf.validateSlider.value = value
                 }
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func initValidationState() {
-        randomNumberLabel.text = randomNumberText
-        validateSlider.setValue(sliderCenterValue, animated: true)
-        validateNumber = Int(sliderCenterValue)
+
+        validateNumberViewModel.outputs.randomNumberText
+            .drive(randomNumberLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        validateNumberViewModel.outputs.sliderMinimumValue
+            .drive(validateSlider.rx.minimumValue)
+            .disposed(by: disposeBag)
+
+        validateNumberViewModel.outputs.sliderMaximumValue
+            .drive(validateSlider.rx.maximumValue)
+            .disposed(by: disposeBag)
     }
     
     @IBAction private func validateSliderValueDidChanged(_ sender: UISlider) {
-        validateNumber = Int(sender.value)
+        // ViewModelに丸投げ
+        validateNumberViewModel.answerSliderValueDidChanged(value: validateSlider.value)
     }
     
     @IBAction private func validateButtonDidTapped(_ sender: Any) {
-        guard let randomeNumber = randomNumberLabel.text.flatMap({ Int($0) }) else { return }
-        validateNumberViewModel.inputs.validateButtonDidTapped(randomeNumber: randomeNumber,
-                                                               validateNumber: validateNumber)
+        // ViewModelに丸投げ
+        validateNumberViewModel.answerButtonDidTapped()
     }
-    
 }

@@ -8,11 +8,16 @@
 import RxCocoa
 
 protocol ValidateNumberViewModelInput {
-    func validateButtonDidTapped(randomeNumber: Int, validateNumber: Int)
+    func answerSliderValueDidChanged(value: Float)
+    func answerButtonDidTapped()
+    func retryButtonDidTapped()
 }
 
 protocol ValidateNumberViewModelOutput {
     var event: Driver<ValidateNumberViewModel.Event> { get }
+    var randomNumberText: Driver<String?> { get }
+    var sliderMinimumValue: Driver<Float> { get }
+    var sliderMaximumValue: Driver<Float> { get }
 }
 
 protocol ValidateNumberViewModelType {
@@ -25,15 +30,7 @@ final class ValidateNumberViewModel: ValidateNumberViewModelInput,
     enum Event {
         case correctAlert(String)
         case incorrectAlert(String)
-
-        init(validationResult: ValidationResult) {
-            switch validationResult {
-            case .correct:
-                self = .correctAlert(validationResult.message)
-            case .incorrect:
-                self = .incorrectAlert(validationResult.message)
-            }
-        }
+        case changeSliderValue(Float)
     }
 
     var event: Driver<Event> {
@@ -41,10 +38,46 @@ final class ValidateNumberViewModel: ValidateNumberViewModelInput,
     }
     private let eventRelay = PublishRelay<Event>()
 
-    func validateButtonDidTapped(randomeNumber: Int, validateNumber: Int) {
-        let result = ValidateNumber().validate(randomeNumber: randomeNumber,
-                                               validateNumber: validateNumber)
-        eventRelay.accept(.init(validationResult: result))
+    var randomNumberText: Driver<String?> {
+        randomNumberGame.correctAnswer
+            .map { String($0) }
+            .asDriver(onErrorDriveWith: .empty())
+    }
+    private let randomNumberTextRelay = BehaviorRelay<String?>(value: "")
+
+    var sliderMinimumValue: Driver<Float> {
+        .just(Float(randomNumberGame.min))
+    }
+
+    var sliderMaximumValue: Driver<Float> {
+        .just(Float(randomNumberGame.max))
+    }
+
+    private let randomNumberGame = RandomNumberGame(min: 1, max: 100)
+
+    private var currentAnswerValue: Float = 0
+
+    func viewDidLoad() {
+        eventRelay.accept(.changeSliderValue(50))
+        randomNumberTextRelay.accept(String(50))
+    }
+
+    func answerSliderValueDidChanged(value: Float) {
+        currentAnswerValue = value
+        randomNumberTextRelay.accept(String(Int(value)))
+    }
+
+    func answerButtonDidTapped() {
+        if randomNumberGame.checkAnswer(answer: Int(currentAnswerValue)) {
+            eventRelay.accept(.correctAlert(ValidationMessage.correct))
+        } else {
+            eventRelay.accept(.incorrectAlert(ValidationMessage.incorrect))
+        }
+    }
+
+    func retryButtonDidTapped() {
+        randomNumberGame.resetGame()
+        eventRelay.accept(.changeSliderValue(50))
     }
 }
 
@@ -60,15 +93,4 @@ extension ValidateNumberViewModel: ValidateNumberViewModelType {
 private enum ValidationMessage {
     static let correct = "あたり！"
     static let incorrect = "ハズレ！"
-}
-
-private extension ValidationResult {
-    var message: String {
-        switch self {
-        case .correct:
-            return ValidationMessage.correct
-        case .incorrect:
-            return ValidationMessage.incorrect
-        }
-    }
 }
