@@ -25,24 +25,26 @@ final class ValidateNumberViewModel: ValidateNumberViewModelInput,
     enum Event {
         case correctAlert(String)
         case incorrectAlert(String)
+
+        init(validationResult: ValidationResult) {
+            switch validationResult {
+            case .correct:
+                self = .correctAlert(validationResult.message)
+            case .incorrect:
+                self = .incorrectAlert(validationResult.message)
+            }
+        }
     }
-    let event: Driver<Event>
+
+    var event: Driver<Event> {
+        eventRelay.asDriver(onErrorDriveWith: .empty())
+    }
     private let eventRelay = PublishRelay<Event>()
-    init() {
-        self.event = eventRelay.asDriver(onErrorDriveWith: .empty())
-    }
+
     func validateButtonDidTapped(randomeNumber: Int, validateNumber: Int) {
         let result = ValidateNumber().validate(randomeNumber: randomeNumber,
                                                validateNumber: validateNumber)
-
-        let message = result.message
-
-        switch result {
-            case .correct:
-                eventRelay.accept(.correctAlert(message))
-            case .incorrect:
-                eventRelay.accept(.incorrectAlert(message))
-        }
+        eventRelay.accept(.init(validationResult: result))
     }
 }
 
