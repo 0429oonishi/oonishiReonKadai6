@@ -9,6 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// View（ビュー）はアプリケーションの扱うデータをユーザーが見るのに適した形で表示し、
+// ユーザーからの入力を受け取る要素である。
+// すなわちユーザインタフェースの入出力が責務である。
+// Viewは宣言的に定義され[11]、渡された値に基づいて描画をおこない、
+// ユーザー入力を通知する。よってMVVMにおけるViewは状態を持たない。
+// https://ja.wikipedia.org/wiki/Model_View_ViewModel
 final class ValidateNumberViewController: UIViewController {
     
     @IBOutlet private weak var randomNumberLabel: UILabel!
