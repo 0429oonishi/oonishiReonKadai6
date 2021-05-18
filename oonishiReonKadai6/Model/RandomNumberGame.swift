@@ -9,17 +9,24 @@ import RxSwift
 import RxRelay
 
 class RandomNumberGame {
-    let min: Int
-    let max: Int
-
     var correctAnswer: Observable<Int> {
         correctAnswerRelay.asObservable()
     }
     private let correctAnswerRelay: BehaviorRelay<Int>
 
+    var min: Observable<Int> {
+        minRelay.asObservable()
+    }
+    private let minRelay: BehaviorRelay<Int>
+
+    var max: Observable<Int> {
+        maxRelay.asObservable()
+    }
+    private let maxRelay: BehaviorRelay<Int>
+
     init(min: Int, max: Int) {
-        self.min = min
-        self.max = max
+        self.minRelay = .init(value: min)
+        self.maxRelay = .init(value: max)
         correctAnswerRelay = BehaviorRelay<Int>(
             value: RandomNumberGenerator().generate(min: min, max: max)
         )
@@ -31,7 +38,10 @@ class RandomNumberGame {
 
     func resetGame() {
         correctAnswerRelay.accept(
-            RandomNumberGenerator().generate(min: min, max: max)
+            RandomNumberGenerator().generate(
+                min: minRelay.value,
+                max: maxRelay.value
+            )
         )
     }
 }

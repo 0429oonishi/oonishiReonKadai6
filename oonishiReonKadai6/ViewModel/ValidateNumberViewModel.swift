@@ -46,11 +46,15 @@ final class ValidateNumberViewModel: ValidateNumberViewModelInput,
     private let randomNumberTextRelay = BehaviorRelay<String?>(value: "")
 
     var sliderMinimumValue: Driver<Float> {
-        .just(Float(randomNumberGame.min))
+        randomNumberGame.min
+            .map { Float($0) }
+            .asDriver(onErrorDriveWith: .empty())
     }
 
     var sliderMaximumValue: Driver<Float> {
-        .just(Float(randomNumberGame.max))
+        randomNumberGame.max
+            .map { Float($0) }
+            .asDriver(onErrorDriveWith: .empty())
     }
 
     private let randomNumberGame = RandomNumberGame(min: 1, max: 100)
