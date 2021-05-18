@@ -34,10 +34,13 @@ final class ValidateNumberViewModel: ValidateNumberViewModelInput,
     func validateButtonDidTapped(randomeNumber: Int, validateNumber: Int) {
         let result = ValidateNumber().validate(randomeNumber: randomeNumber,
                                                validateNumber: validateNumber)
+
+        let message = result.message
+
         switch result {
-            case .correct(let message):
+            case .correct:
                 eventRelay.accept(.correctAlert(message))
-            case .incorrect(let message):
+            case .incorrect:
                 eventRelay.accept(.incorrectAlert(message))
         }
     }
@@ -49,5 +52,21 @@ extension ValidateNumberViewModel: ValidateNumberViewModelType {
     }
     var outputs: ValidateNumberViewModelOutput {
         return self
+    }
+}
+
+private enum ValidationMessage {
+    static let correct = "あたり！"
+    static let incorrect = "ハズレ！"
+}
+
+private extension ValidationResult {
+    var message: String {
+        switch self {
+        case .correct:
+            return ValidationMessage.correct
+        case .incorrect:
+            return ValidationMessage.incorrect
+        }
     }
 }

@@ -7,27 +7,18 @@
 
 import Foundation
 
-enum ValidationMessage {
-    static let correct = "あたり！"
-    static let incorrect = "ハズレ！"
-}
+enum ValidationResult {
+    case correct
+    case incorrect
 
-enum ValidationResult<Correct, Incorrect> {
-    case correct(Correct)
-    case incorrect(Incorrect)
+    init(isCorrect: Bool) {
+        self = isCorrect ? .correct : .incorrect
+    }
 }
 
 struct ValidateNumber {
-    func validate(randomeNumber: Int, validateNumber: Int) -> ValidationResult<String, String> {
+    func validate(randomeNumber: Int, validateNumber: Int) -> ValidationResult {
         let isCorrect = (randomeNumber == validateNumber)
-        let validationSubMessage = "\nあなたの値: \(validateNumber)"
-        switch isCorrect {
-            case true:
-                let message = ValidationMessage.correct + validationSubMessage
-                return .correct(message)
-            case false:
-                let message = ValidationMessage.incorrect + validationSubMessage
-                return .incorrect(message)
-        }
+        return ValidationResult(isCorrect: isCorrect)
     }
 }
