@@ -16,7 +16,6 @@
 		AB5779F62651422E005BECB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5779F42651422E005BECB9 /* LaunchScreen.storyboard */; };
 		AB5779FE26515295005BECB9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5779FD26515294005BECB9 /* UIViewController+Extension.swift */; };
 		AB577A05265169F0005BECB9 /* ValidateNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB577A04265169F0005BECB9 /* ValidateNumberViewModel.swift */; };
-		AB577A0726516A76005BECB9 /* ValidateNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB577A0626516A76005BECB9 /* ValidateNumber.swift */; };
 		ABA4FD78265738ED00FB13AF /* RandomNumberGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA4FD77265738ED00FB13AF /* RandomNumberGame.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		AB5779F72651422E005BECB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB5779FD26515294005BECB9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AB577A04265169F0005BECB9 /* ValidateNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateNumberViewModel.swift; sourceTree = "<group>"; };
-		AB577A0626516A76005BECB9 /* ValidateNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateNumber.swift; sourceTree = "<group>"; };
 		ABA4FD77265738ED00FB13AF /* RandomNumberGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberGame.swift; sourceTree = "<group>"; };
 		C93A00BE08F018BE486FE5EF /* Pods-oonishiReonKadai6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oonishiReonKadai6.release.xcconfig"; path = "Target Support Files/Pods-oonishiReonKadai6/Pods-oonishiReonKadai6.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +94,6 @@
 		AB577A0026515776005BECB9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AB577A0626516A76005BECB9 /* ValidateNumber.swift */,
 				ABA4FD77265738ED00FB13AF /* RandomNumberGame.swift */,
 			);
 			path = Model;
@@ -249,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB577A0726516A76005BECB9 /* ValidateNumber.swift in Sources */,
 				AB5779FE26515295005BECB9 /* UIViewController+Extension.swift in Sources */,
 				AB5779EE26514229005BECB9 /* ValidateNumberViewController.swift in Sources */,
 				AB5779EA26514229005BECB9 /* AppDelegate.swift in Sources */,

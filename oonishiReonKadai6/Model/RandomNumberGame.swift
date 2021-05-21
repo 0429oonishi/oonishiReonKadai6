@@ -8,7 +8,8 @@
 import RxSwift
 import RxRelay
 
-class RandomNumberGame {
+// 異なる表示形態を持つ複数画面でも使いまわせるように、具体的な表示文字列は意識しない
+final class RandomNumberGame {
     var correctAnswer: Observable<Int> {
         correctAnswerRelay.asObservable()
     }
