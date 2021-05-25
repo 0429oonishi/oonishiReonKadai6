@@ -53,7 +53,7 @@ final class ValidateNumberViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    @IBAction private func answerSliderValueDidChangted(_ sender: UISlider) {
+    @IBAction private func answerSliderValueDidChangted(_ sender: Any) {
         validateNumberViewModel.answerSliderValueDidChangted(value: validateSlider.value)
     }
     
