@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,32 +12,32 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ValidateNumberViewController" customModule="oonishiReonKadai6" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9le-jV-gJE">
-                                <rect key="frame" x="188.5" y="74" width="37" height="36"/>
+                                <rect key="frame" x="281.5" y="30" width="37" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="mn7-Mb-5D8">
-                                <rect key="frame" x="28" y="160" width="358" height="31"/>
+                                <rect key="frame" x="28" y="116" width="544" height="31"/>
                                 <connections>
-                                    <action selector="validateSliderValueDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="8Hw-3a-8u4"/>
+                                    <action selector="answerSliderValueDidChangted:" destination="BYZ-38-t0r" eventType="valueChanged" id="8Hw-3a-8u4"/>
                                 </connections>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EaG-tS-NZw">
-                                <rect key="frame" x="30" y="220" width="354" height="20.5"/>
+                                <rect key="frame" x="30" y="176" width="540" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOP-4c-D4d">
-                                        <rect key="frame" x="0.0" y="0.0" width="177" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO2-rC-gcv">
-                                        <rect key="frame" x="177" y="0.0" width="177" height="20.5"/>
+                                        <rect key="frame" x="270" y="0.0" width="270" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -46,7 +45,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6V-yY-PEb">
-                                <rect key="frame" x="184" y="290.5" width="46" height="30"/>
+                                <rect key="frame" x="277" y="246.5" width="46" height="30"/>
                                 <state key="normal" title="判定！"/>
                                 <connections>
                                     <action selector="validateButtonDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z6b-In-ZSr"/>

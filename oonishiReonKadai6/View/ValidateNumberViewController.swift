@@ -12,7 +12,7 @@ import RxCocoa
 /*
  Viewはアプリケーションの扱うデータをユーザーが見るのに適した形で表示し、
  ユーザーからの入力を受け取る要素である。
- すなわちユーザインタフェースの入出力が責務である。　　
+ すなわちユーザインタフェースの入出力が責務である。　
  Viewは宣言的に定義され、渡された値に基づいて描画をおこない、
  ユーザー入力を通知する。よってMVVMにおけるViewは状態を持たない。
  https://ja.wikipedia.org/wiki/Model_View_ViewModel
@@ -63,11 +63,11 @@ final class ValidateNumberViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    @IBAction private func validateSliderValueDidChanged(_ sender: UISlider) {
+    @IBAction private func answerSliderValueDidChangted(_ sender: UISlider) {
         validateNumberViewModel.answerSliderValueDidChangted(value: validateSlider.value)
     }
     
-    @IBAction private func validateButtonDidTapped(_ sender: Any) {
+    @IBAction private func answerButtonDidTapped(_ sender: Any) {
         validateNumberViewModel.answerButtonDidTapped()
     }
     
