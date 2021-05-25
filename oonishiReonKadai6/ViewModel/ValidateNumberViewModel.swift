@@ -25,12 +25,6 @@ protocol ValidateNumberViewModelType {
     var outputs: ValidateNumberViewModelOutput { get }
 }
 
-/*
-  ViewModelはViewを描画するための状態の保持と、
-  Viewから受け取った入力を適切な形に変換してModelに伝達する役目を持つ。
-  すなわちViewとModelの間の情報の伝達と、Viewのための状態保持のみを役割とする要素である。
-  https://ja.wikipedia.org/wiki/Model_View_ViewModel
- */
 final class ValidateNumberViewModel: ValidateNumberViewModelInput,
                                      ValidateNumberViewModelOutput {
     enum Event {
