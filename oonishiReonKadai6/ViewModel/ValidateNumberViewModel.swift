@@ -33,6 +33,7 @@ final class ValidateNumberViewModel: ValidateNumberViewModelInput,
         case changeSliderValue(Float)
     }
     private let randomNumberGame = RandomNumberGame(min: 1, max: 100)
+    
     var event: Driver<Event> {
         eventRelay.asDriver(onErrorDriveWith: .empty())
     }
@@ -43,7 +44,6 @@ final class ValidateNumberViewModel: ValidateNumberViewModelInput,
             .map { String($0) }
             .asDriver(onErrorDriveWith: .empty())
     }
-    
     private let randomNumberTextRelay = BehaviorRelay<String?>(value: "")
     
     var sliderMinimumValue: Driver<Float> {
@@ -51,7 +51,6 @@ final class ValidateNumberViewModel: ValidateNumberViewModelInput,
             .map { Float($0) }
             .asDriver(onErrorDriveWith: .empty())
     }
-    
     var sliderMaximumValue: Driver<Float> {
         randomNumberGame.max
             .map { Float($0) }
@@ -59,7 +58,7 @@ final class ValidateNumberViewModel: ValidateNumberViewModelInput,
     }
     
     private var currentAnswerValue: Float = 50
-
+    
     func answerSliderValueDidChangted(value: Float) {
         currentAnswerValue = value
         randomNumberTextRelay.accept(String(Int(value)))

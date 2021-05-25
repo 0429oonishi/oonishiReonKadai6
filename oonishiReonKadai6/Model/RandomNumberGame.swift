@@ -8,26 +8,17 @@
 import RxSwift
 import RxRelay
 
-// 異なる表示形態を持つ複数画面でも使いまわせるように、具体的な表示文字列は意識しない
 final class RandomNumberGame {
-    var correctAnswer: Observable<Int> {
-        correctAnswerRelay.asObservable()
-    }
+    var correctAnswer: Observable<Int> { correctAnswerRelay.asObservable() }
+    var min: Observable<Int> { minRelay.asObservable() }
+    var max: Observable<Int> { maxRelay.asObservable() }
     private let correctAnswerRelay: BehaviorRelay<Int>
-    
-    var min: Observable<Int> {
-        minRelay.asObservable()
-    }
     private let minRelay: BehaviorRelay<Int>
-    
-    var max: Observable<Int> {
-        maxRelay.asObservable()
-    }
     private let maxRelay: BehaviorRelay<Int>
     
     init(min: Int, max: Int) {
-        self.minRelay = .init(value: min)
-        self.maxRelay = .init(value: max)
+        self.minRelay = BehaviorRelay(value: min)
+        self.maxRelay = BehaviorRelay(value: max)
         correctAnswerRelay = BehaviorRelay<Int>(
             value: RandomNumberGenerator().generate(min: min, max: max)
         )
