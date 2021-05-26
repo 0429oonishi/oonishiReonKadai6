@@ -21,6 +21,7 @@ final class ValidateNumberViewController: UIViewController {
         super.viewDidLoad()
         
         setupBindings()
+        // ViewModelに任せる
         validateNumberViewModel.viewDidLoad()
         
     }
@@ -54,10 +55,12 @@ final class ValidateNumberViewController: UIViewController {
     }
     
     @IBAction private func answerSliderValueDidChangted(_ sender: Any) {
+        // ViewModelに任せる
         validateNumberViewModel.answerSliderValueDidChangted(value: validateSlider.value)
     }
     
     @IBAction private func answerButtonDidTapped(_ sender: Any) {
+        // ViewModelに任せる
         validateNumberViewModel.answerButtonDidTapped()
     }
     
